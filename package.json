@@ -1,0 +1,41 @@
+{
+  "name": "markdown-publish",
+  "version": "0.0.1",
+  "description": "Publish markdown files directly to kubo node from Brave Browser",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node esbuild.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/JusticeEngineering/markdown-publish.git"
+  },
+  "keywords": [
+    "markdown",
+    "IPFS",
+    "brave",
+    "browser",
+    "extension",
+    "mv3",
+    "web",
+    "extension",
+    "browser",
+    "addon",
+    "browser"
+  ],
+  "author": "David Justice",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JusticeEngineering/markdown-publish/issues"
+  },
+  "homepage": "https://github.com/JusticeEngineering/markdown-publish#readme",
+  "dependencies": {
+    "@wysimark/standalone": "^2.6.7"
+  },
+  "devDependencies": {
+    "esbuild": "^0.18.11",
+    "esbuild-plugin-svg": "^0.1.0"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "version": "0.0.1",
+  "name": "markdown-publish",
+  "description": "Publish markdown to IPFS in Brave Browser",
+  "permissions": [
+    "tabs"
+],
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "action": {
+    "default_title": "Markdown Publish",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "16": "icon.png"
+  }
+}
