@@ -3,12 +3,35 @@
 <head>
     <meta charset="UTF-8" />
     <title>Markdown Publish</title>
+
+    <style>
+        body {
+            display: flex;
+        }
+
+        auto-ipfs-options {
+            display: inline-block;
+        }
+
+        #editor-container {
+            min-width: 65%;
+            margin-left: 10%;
+        }
+
+        #settings-container {
+            margin: 10px;
+            display: flex;
+            background: #eaeaea;
+            padding: 10px;
+            border-radius: 2px;
+            justify-items: flex-end;
+            flex-direction: column-reverse;
+        }
+    </style>
 </head>
 <body>
-    <h1>Markdown Publish</h1>
     <div id="editor-container"></div>
-
-    <script src="./bundle.js
-"></script>
+    <div id="settings-container"></div>
+    <script src="./bundle.js"></script>
 </body>
 </html>
