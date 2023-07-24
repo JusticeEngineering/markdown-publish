@@ -1,6 +1,6 @@
 /* global customElements */
 
-// import { createWysimark } from "@wysimark/standalone"
+import { createWysimark } from "@wysimark/standalone"
 import { AutoIPFSOptions } from "./components/ipfs-options"
 import { AutoIPFSUpload } from "./components/ipfs-upload"
 import { initialMarkdown } from "./initial-markdown"
