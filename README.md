@@ -3,7 +3,7 @@
 Create a markdown file and publish directly to IPFS (via Local node, Brave's built in Node, Estuary or Web3.storage)
 
 ## Project management
-Planning is currently done in [this hackmd](), it will soon be moved into gh issues on this repo.
+Planning is currently done in [this hackmd](https://hackmd.io/NFIiF0KuTeCKtRvAj23Rhw), it will soon be moved into gh issues on this repo.
 
 ## Running
 * `npm run build`
