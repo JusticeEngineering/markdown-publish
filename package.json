@@ -31,7 +31,9 @@
   "homepage": "https://github.com/JusticeEngineering/markdown-publish#readme",
   "dependencies": {
     "@wysimark/standalone": "^2.6.7",
-    "auto-js-ipfs": "^2.3.0"
+    "auto-js-ipfs": "^2.3.0",
+    "is-ipfs": "^8.0.1",
+    "webextension-polyfill": "^0.10.0"
   },
   "devDependencies": {
     "esbuild": "^0.18.11",

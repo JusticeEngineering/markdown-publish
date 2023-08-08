@@ -1,5 +1,6 @@
 /* global HTMLElement */
-import { create, choose } from 'auto-js-ipfs'
+// http://localhost:5001 ipfs-desktop
+const apiURL = new URL('http://localhost:48083')
 
 export class AutoIPFSUpload extends HTMLElement {
   connectedCallback() {
@@ -23,18 +24,6 @@ export class AutoIPFSUpload extends HTMLElement {
     return this.querySelector('ul')
   }
 
-  async getAPI() {
-    const selected = this.getAttribute('selected')
-    if (selected) {
-      const parsed = JSON.parse(selected)
-      const api = await choose(parsed)
-      return api
-    } else {
-      const api = await create()
-      return api
-    }
-  }
-
   listFile(name, url) {
     const li = document.createElement('li')
     li.innerHTML = `<a href="${url}">${name}: ${url}</a>`
@@ -43,9 +32,18 @@ export class AutoIPFSUpload extends HTMLElement {
   }
 
   async uploadFile(file) {
-    const api = await this.getAPI()
-    const url = await api.uploadFile(file)
-
-    this.listFile(file.name, url)
+    const apiCall = `${apiURL}/api/v0/add`
+    const xhr = new XMLHttpRequest() // older XHR API us used because window.fetch appends Origin which causes error 403 in go-ipfs
+    // synchronous mode with small timeout
+    // (it is okay, because we do it only once, then it is cached and read via readAndCacheDnslink)
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        this.listFile(file.name, `ipfs://${JSON.parse(xhr.response)['Hash']}/`)
+      }
+    };
+    xhr.open('post', apiCall, true)
+    var formData = new FormData();
+    formData.append("thefile", file);
+    xhr.send(formData);
   }
 }
