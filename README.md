@@ -1,28 +1,13 @@
 # Markdown Publish
 
-Create a markdown file and publish directly to IPFS (via Local node, Brave's built in Node, Estuary or Web3.storage)
+Create a markdown file and publish directly to IPFS (via Local node / Brave's built in Node)
 
-## Project management
-Planning is currently done in [this hackmd](https://hackmd.io/NFIiF0KuTeCKtRvAj23Rhw), it will soon be moved into gh issues on this repo.
+⬇️CLICK FOR DEMO ⬇️
+
+[<img src="https://i.ytimg.com/vi/eVkGpwcEWUQ/maxresdefault.jpg" width="50%">](https://www.youtube.com/watch?v=eVkGpwcEWUQ "IPFS publishing flow in brave Demo")
 
 ## Running
 * `npm run build`
 * open `about://extensions` and load unpacked extension
-
-_you will need to have IPFS Desktop/Kubo running to publish to local node_
-
-In order to publish to Kubo/IPFS Desktop, you will need to update your IPFS Config
-
-``` JSON
-{
-"API": {
-		"HTTPHeaders": {
-			"Access-Control-Allow-Origin": [
-				"chrome-extension://bjgalcncpnagkpfakcbleingnkcaebah"
-            ]
-        }
-}
-}
-```
 
 Built by Justice Engineering
