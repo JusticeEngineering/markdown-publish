@@ -8,6 +8,8 @@ import { AutoIPFSUpload } from "./components/ipfs-upload"
 import { initialMarkdown } from "./initial-markdown"
 import { createRequestModifier } from "./ipfs-request"
 
+const apiURL = new URL('http://localhost:45004')
+
 customElements.define('auto-ipfs-options', AutoIPFSOptions)
 customElements.define('auto-ipfs-upload', AutoIPFSUpload)
 
@@ -21,7 +23,7 @@ settingsContainer.appendChild(autoIpfsUploadEl)
 const container = document.getElementById("editor-container")
 autoIpfsUploadEl.wysimark = createWysimark(container, { initialMarkdown })
 
-const modifyRequest = createRequestModifier(browser)
+const modifyRequest = createRequestModifier(browser, apiURL)
 
 const onBeforeSendInfoSpec = ['blocking', 'requestHeaders']
 if (browser.webRequest.OnBeforeSendHeadersOptions && 'EXTRA_HEADERS' in browser.webRequest.OnBeforeSendHeadersOptions) {
@@ -30,3 +32,7 @@ if (browser.webRequest.OnBeforeSendHeadersOptions && 'EXTRA_HEADERS' in browser.
     onBeforeSendInfoSpec.push('extraHeaders')
 }
 browser.webRequest.onBeforeSendHeaders.addListener(modifyRequest.onBeforeSendHeaders, { urls: ['<all_urls>'] }, onBeforeSendInfoSpec)
+
+// Start a long-running conversation:
+// var port = chrome.runtime.connect(linkListExtensionId);
+// port.postMessage(...);

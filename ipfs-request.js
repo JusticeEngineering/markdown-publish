@@ -1,10 +1,7 @@
 import * as isIPFS from 'is-ipfs'
 
-// http://localhost:5001 ipfs-desktop
-const apiURL = new URL('http://localhost:48083')
-
 // pulled from https://github.com/ipfs/ipfs-companion/blob/76a38f3cff1a4929dd9a24ab4465f8bf6a8e1bb1/add-on/src/lib/ipfs-request.js
-export function createRequestModifier(browser) {
+export function createRequestModifier(browser, apiURL) {
     const runtimeRoot = browser.runtime.getURL('/')
     const webExtensionOrigin = runtimeRoot ? new URL(runtimeRoot).origin : 'http://companion-origin' // avoid 'null' because it has special meaning
     const isCompanionRequest = (request) => {
